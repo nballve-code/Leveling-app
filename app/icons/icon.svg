@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="35%" r="75%">
+      <stop offset="0" stop-color="#3a2766"/>
+      <stop offset="1" stop-color="#0e0b16"/>
+    </radialGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff2c2"/>
+      <stop offset="1" stop-color="#d9a441"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="url(#g)" stroke-width="16"/>
+  <g stroke="url(#g)" stroke-width="12" stroke-linecap="round">
+    <line x1="256" y1="58" x2="256" y2="92"/><line x1="256" y1="420" x2="256" y2="454"/>
+    <line x1="58" y1="256" x2="92" y2="256"/><line x1="420" y1="256" x2="454" y2="256"/>
+    <line x1="116" y1="116" x2="140" y2="140"/><line x1="372" y1="372" x2="396" y2="396"/>
+    <line x1="396" y1="116" x2="372" y2="140"/><line x1="140" y1="372" x2="116" y2="396"/>
+  </g>
+  <path d="M256 150 L280 232 L362 256 L280 280 L256 362 L232 280 L150 256 L232 232 Z" fill="url(#g)"/>
+  <path d="M300 168 a96 96 0 1 1 -110 150 a110 110 0 0 0 110 -150 z" fill="#a98bff" opacity=".55"/>
+</svg>
