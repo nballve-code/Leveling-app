@@ -1,6 +1,33 @@
 {
- "generatedAt": "2026-11-06T18:28:30.438Z",
+ "generatedAt": "2026-11-06T19:27:16.102Z",
  "items": [
+  {
+   "id": "https://www.wowhead.com/news=383786",
+   "title": "Minimum Deposit on AH Being Reduced to 1 Copper Soon in WoW: Forever",
+   "url": "https://www.wowhead.com/news=383786/minimum-deposit-on-ah-being-reduced-to-1-copper-soon-in-wow-forever",
+   "summary": "Kris Zierhut has announced that the minimum deposit on the Auction House on WoW: Forever will be changed soon.",
+   "image": "https://wow.zamimg.com/uploads/blog/images/56054-minimum-deposit-on-ah-being-reduced-to-1-copper-soon-in-wow-forever.png",
+   "createdAt": "2026-11-06T19:08:08.000Z",
+   "source": "Wowhead"
+  },
+  {
+   "id": "https://www.wowhead.com/news=383785",
+   "title": "Shaman Talents Revisited Early Next Year - Blizzard Addresses Shaman Classic Discord Shutdown in WoW: Forever",
+   "url": "https://www.wowhead.com/news=383785/shaman-talents-revisited-early-next-year-blizzard-addresses-shaman-classic",
+   "summary": "Blizzard has addressed the Shaman Classic Discord shutdown, noting that they are looking at revisiting Shaman talents, but no sooner than early next year.",
+   "image": "https://wow.zamimg.com/uploads/blog/images/56053-shaman-talents-revisited-early-next-year-blizzard-addresses-shaman-classic.jpg",
+   "createdAt": "2026-11-06T18:34:57.000Z",
+   "source": "Wowhead"
+  },
+  {
+   "id": "https://www.wowhead.com/news=383784",
+   "title": "The Adventure Begins in WoW: Forever, Stay Connected with Discord, and Taldramir Takes Shape in WoW Weekly",
+   "url": "https://www.wowhead.com/news=383784/the-adventure-begins-in-wow-forever-stay-connected-with-discord-and-taldramir",
+   "summary": "Blizzard has released a new issue of their WoW Weekly blog post, recapping the Forever launch, Discord integration, and the reveal of a new Forever Legendary weapon.",
+   "image": "https://wow.zamimg.com/uploads/blog/images/56052-the-adventure-begins-in-wow-forever-stay-connected-with-discord-and-taldramir.jpg",
+   "createdAt": "2026-11-06T18:31:23.000Z",
+   "source": "Wowhead"
+  },
   {
    "id": "https://www.wowhead.com/news=383782",
    "title": "Major QoL Update to Popular Alliance Quest in WoW: Forever",

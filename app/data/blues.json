@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T18:19:10.945Z",
+ "generatedAt": "2026-11-06T19:27:16.102Z",
  "errors": [],
  "posts": [
   {
@@ -2248,7 +2248,7 @@
    "username": "BlizzardEntertainment",
    "authorTitle": "Blizzard News",
    "createdAt": "2026-10-15T20:13:17.413Z",
-   "excerpt": "[Desbloquea un año de World of Warcraft® y consigue tesoros de regalo] Adquiere una suscripción de 12 meses o 365 días de tiempo de juego y recibe objetos estéticos para el juego, ¡incluidos varios que podrás usar en World of Warcraft: Forever! Ver artículo completo",
+   "excerpt": "[Desbloquea un año de World of Warcraft® y consigue tesoros de regalo] Adquiere una suscripción de 12 meses y recibe objetos estéticos para el juego, ¡incluidos varios que podrás usar en World of Warcraft: Forever! Ver artículo completo",
    "html": "<p><a href=\"https://bnetcmsus-a.akamaihd.net/cms/blog_header/ui/UI9K0GIEGJPS1791937415682.png\"><img src=\"https://bnetcmsus-a.akamaihd.net/cms/blog_header/ui/UI9K0GIEGJPS1791937415682.png\" alt=\"Desbloquea un año de World of Warcraft® y consigue tesoros de regalo\" width=\"833\" height=\"468\"></a></p><p>Adquiere una suscripción de 12 meses o 365 días de tiempo de juego y recibe objetos estéticos para el juego, ¡incluidos varios que podrás usar en World of Warcraft: Forever! </p><p><a href=\"https://worldofwarcraft.com/es-mx/news/24310658\">Ver artículo completo</a></p>",
    "text": "Adquiere una suscripción de 12 meses o 365 días de tiempo de juego y recibe objetos estéticos para el juego, ¡incluidos varios que podrás usar en World of Warcraft: Forever! \n Ver artículo completo",
    "updatedAt": "2026-10-15T20:13:29.898Z",
@@ -4189,6 +4189,8 @@
   }
  ],
  "seen": [
+  "us-30782298",
+  "latam-166581",
   "latam-166577",
   "eu-6477693",
   "us-30774771",
@@ -4387,8 +4389,6 @@
   "latam-166286",
   "latam-166275",
   "latam-166193",
-  "latam-166161",
-  "us-30782298",
-  "latam-166581"
+  "latam-166161"
  ]
 }
