@@ -1,6 +1,15 @@
 {
- "generatedAt": "2026-11-06T19:27:16.102Z",
+ "generatedAt": "2026-11-06T20:17:48.184Z",
  "items": [
+  {
+   "id": "https://www.wowhead.com/news=383789",
+   "title": "Blizzard Fixing Issues Causing Duplicates of NPCs and Mobs",
+   "url": "https://www.wowhead.com/news=383789/blizzard-fixing-issues-causing-duplicates-of-npcs-and-mobs",
+   "summary": "Blizzard is addressing the issue of NPCs and mobs being briefly duplicated across each layer.",
+   "image": "https://wow.zamimg.com/uploads/blog/images/56055-blizzard-fixing-issues-causing-duplicates-of-npcs-and-mobs.jpg",
+   "createdAt": "2026-11-06T20:11:48.000Z",
+   "source": "Wowhead"
+  },
   {
    "id": "https://www.wowhead.com/news=383786",
    "title": "Minimum Deposit on AH Being Reduced to 1 Copper Soon in WoW: Forever",
