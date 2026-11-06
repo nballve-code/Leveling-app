@@ -1,0 +1,59 @@
+name: Blue tracker + publicar app
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # cada 15 min (GitHub puede demorarlo unos minutos)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["app/**", "scripts/**", ".github/workflows/update-feeds.yml"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: feeds
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Buscar posts azules y noticias
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NOTIFY_REGIONS: ${{ vars.NOTIFY_REGIONS || 'us,latam' }}
+          NOTIFY_ALL: ${{ vars.NOTIFY_ALL || '0' }}
+          APP_URL: ${{ vars.APP_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: node scripts/fetch-feeds.mjs
+
+      - name: Guardar datos en el repo
+        run: |
+          git config user.name "forever-tracker[bot]"
+          git config user.email "forever-tracker@users.noreply.github.com"
+          git add app/data
+          if git diff --cached --quiet -- app/data/blues.json app/data/news.json; then
+            echo "Sin cambios"
+            git reset -q
+          else
+            git commit -q -m "data: actualizar blue posts [skip ci]"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app
+      - id: deploy
+        uses: actions/deploy-pages@v4
