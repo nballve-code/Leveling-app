@@ -1,7 +1,51 @@
 {
- "generatedAt": "2026-11-06T18:02:08.006Z",
+ "generatedAt": "2026-11-06T18:19:10.945Z",
  "errors": [],
  "posts": [
+  {
+   "id": "us-30782298",
+   "postId": 30782298,
+   "region": "us",
+   "title": "The Adventure Begins in WoW: Forever, Stay Connected with Discord, and Taldramir Takes Shape in WoW…",
+   "url": "https://us.forums.blizzard.com/en/wow/t/the-adventure-begins-in-wow-forever-stay-connected-with-discord-and-taldramir-takes-shape-in-wow%E2%80%A6/2403854/1",
+   "topicId": 2403854,
+   "postNumber": 1,
+   "category": "General",
+   "author": "Blizzard Entertainment",
+   "username": "BlizzardEntertainment",
+   "authorTitle": "Blizzard News",
+   "createdAt": "2026-11-06T18:10:08.162Z",
+   "excerpt": "[The Adventure Begins in WoW: Forever, Stay Connected with Discord, and Taldramir Takes Shape in WoW Weekly] Azeroth has a new home, and the adventure is just getting started! This week in WoW Weekly, discover that World of Warcraft: Forever is now live, join ongoing conversations on Discord in and …",
+   "html": "<p><a href=\"https://bnetcmsus-a.akamaihd.net/cms/blog_header/qh/QH2TTG9EVNTI1793925835070.png\"><img src=\"https://bnetcmsus-a.akamaihd.net/cms/blog_header/qh/QH2TTG9EVNTI1793925835070.png\" alt=\"The Adventure Begins in WoW: Forever, Stay Connected with Discord, and Taldramir Takes Shape in WoW Weekly\" width=\"833\" height=\"468\"></a></p><p>Azeroth has a new home, and the adventure is just getting started! This week in WoW Weekly, discover that World of Warcraft: Forever is now live, join ongoing conversations on Discord in and out of the game, explore another way to play with gamepad support, and more. </p><p><a href=\"https://worldofwarcraft.com/en-us/news/24316097\">View Full Article</a></p>",
+   "text": "Azeroth has a new home, and the adventure is just getting started! This week in WoW Weekly, discover that World of Warcraft: Forever is now live, join ongoing conversations on Discord in and out of the game, explore another way to play with gamepad support, and more. \n View Full Article",
+   "updatedAt": "2026-11-06T18:10:15.093Z",
+   "tags": [
+    "news"
+   ],
+   "important": true
+  },
+  {
+   "id": "latam-166581",
+   "postId": 166581,
+   "region": "latam",
+   "title": "Comienza tu aventura en WoW: Forever, conéctate en Discord y mira cómo Taldramir toma forma en el…",
+   "url": "https://us.forums.blizzard.com/es/wow/t/comienza-tu-aventura-en-wow-forever-con%C3%A9ctate-en-discord-y-mira-c%C3%B3mo-taldramir-toma-forma-en-el%E2%80%A6/25012/1",
+   "topicId": 25012,
+   "postNumber": 1,
+   "category": "General",
+   "author": "Blizzard Entertainment",
+   "username": "BlizzardEntertainment",
+   "authorTitle": "Blizzard News",
+   "createdAt": "2026-11-06T18:10:07.967Z",
+   "excerpt": "[Comienza tu aventura en WoW: Forever, conéctate en Discord y mira cómo Taldramir toma forma en el resumen semanal de WoW.] ¡Azeroth tiene un nuevo hogar y la aventura recién comienza! En esta semana, en el resumen semanal de WoW, descubre que World of Warcraft: Forever ya está disponible, únete a l…",
+   "html": "<p><a href=\"https://bnetcmsus-a.akamaihd.net/cms/blog_header/qh/QH2TTG9EVNTI1793925835070.png\"><img src=\"https://bnetcmsus-a.akamaihd.net/cms/blog_header/qh/QH2TTG9EVNTI1793925835070.png\" alt=\"Comienza tu aventura en WoW: Forever, conéctate en Discord y mira cómo Taldramir toma forma en el resumen semanal de WoW.\" width=\"833\" height=\"468\"></a></p><p>¡Azeroth tiene un nuevo hogar y la aventura recién comienza! En esta semana, en el resumen semanal de WoW, descubre que World of Warcraft: Forever ya está disponible, únete a las conversaciones en Discord tanto dentro como fuera del juego, explora una nueva forma de jugar con la compatibilidad de controles y mucho más.   </p><p><a href=\"https://worldofwarcraft.com/es-mx/news/24316097\">Ver artículo completo</a></p>",
+   "text": "¡Azeroth tiene un nuevo hogar y la aventura recién comienza! En esta semana, en el resumen semanal de WoW, descubre que World of Warcraft: Forever ya está disponible, únete a las conversaciones en Discord tanto dentro como fuera del juego, explora una nueva forma de jugar con la compatibilidad de controles y mucho más. \n Ver artículo completo",
+   "updatedAt": "2026-11-06T18:10:13.624Z",
+   "tags": [
+    "news"
+   ],
+   "important": true
+  },
   {
    "id": "latam-166577",
    "postId": 166577,
@@ -4343,6 +4387,8 @@
   "latam-166286",
   "latam-166275",
   "latam-166193",
-  "latam-166161"
+  "latam-166161",
+  "us-30782298",
+  "latam-166581"
  ]
 }
