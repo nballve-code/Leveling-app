@@ -1,6 +1,6 @@
 // Service worker: la app abre sin conexión y los datos se piden siempre frescos.
-const VERSION = "fc-v1";
-const SHELL = ["./", "index.html", "styles.css", "app.js", "content/priest.js", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png"];
+const VERSION = "fc-v2";
+const SHELL = ["./", "index.html", "styles.css", "app.js", "content/priest.js", "content/professions.js", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
