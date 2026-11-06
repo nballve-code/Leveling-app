@@ -261,3 +261,17 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 5px; font-
 @media (min-width: 720px) {
   .tabbar { max-width: 720px; margin: 0 auto; border-left: 1px solid var(--border); border-right: 1px solid var(--border); border-radius: 16px 16px 0 0; }
 }
+
+/* ---------- Personaje / professions ---------- */
+.char { display: flex; align-items: center; gap: 12px; }
+.char img, .char-ph { width: 52px; height: 52px; border-radius: 12px; border: 1px solid #3a2d55; object-fit: cover; background: var(--surface-2); }
+.char-name { font-family: Cinzel, Georgia, serif; font-weight: 700; color: var(--holy); font-size: 1.05rem; }
+a.icon-btn { text-decoration: none; }
+.icon-btn.on { color: var(--gold); border-color: var(--gold); }
+.prof-row { display: block; text-decoration: none; color: inherit; padding: 8px 0; }
+.prof-row + .prof-row { border-top: 1px solid var(--border); }
+.xpbar.slim { height: 5px; margin: 6px 0 0; }
+.c-holy-bg { background: var(--holy) !important; }
+.c-disc-bg { background: var(--disc) !important; }
+.c-shadow-bg { background: var(--shadow) !important; }
+.skill-input { width: 72px !important; text-align: center; font-weight: 700; color: var(--gold) !important; font-size: 1.15rem !important; padding: 7px 4px !important; }

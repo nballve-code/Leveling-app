@@ -8,7 +8,7 @@
 // Variables de entorno opcionales:
 //   NTFY_TOPIC      tema de ntfy.sh al que mandar las alertas (si falta, no avisa)
 //   NTFY_SERVER     servidor ntfy (default https://ntfy.sh)
-//   NOTIFY_REGIONS  regiones que disparan alertas, separadas por coma (default "us,latam")
+//   NOTIFY_REGIONS  regiones que disparan alertas, separadas por coma (default "us")
 //   NOTIFY_ALL      "1" para avisar de cualquier post azul, no solo los importantes
 //   APP_URL         URL pública de la app, para que la alerta abra la app
 //   DATA_DIR        carpeta de salida (default app/data)
@@ -23,13 +23,14 @@ const MAX_NEWS = 80;
 const MAX_DETAIL_FETCHES = 40;
 const REFRESH_DAYS = 14; // re-chequear ediciones de hotfixes/known issues recientes
 
+// Solo el foro de US (inglés): ahí juega el usuario y así no se duplican las
+// noticias en inglés y en español.
 const REGIONS = [
   { id: "us", label: "US", base: "https://us.forums.blizzard.com/en/wow" },
-  { id: "eu", label: "EU", base: "https://eu.forums.blizzard.com/en/wow" },
-  { id: "latam", label: "LatAm", base: "https://us.forums.blizzard.com/es/wow" },
 ];
+const REGION_IDS = new Set(REGIONS.map((r) => r.id));
 
-const NOTIFY_REGIONS = (process.env.NOTIFY_REGIONS || "us,latam").split(",").map((s) => s.trim());
+const NOTIFY_REGIONS = (process.env.NOTIFY_REGIONS || "us").split(",").map((s) => s.trim());
 const NOTIFY_ALL = process.env.NOTIFY_ALL === "1";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -238,7 +239,7 @@ async function main() {
   const newsFile = path.join(DATA_DIR, "news.json");
   const prev = await readJSON(bluesFile, { posts: [] });
   const firstRun = prev.posts.length === 0;
-  const byId = new Map(prev.posts.map((p) => [p.id, p]));
+  const byId = new Map(prev.posts.filter((p) => REGION_IDS.has(p.region)).map((p) => [p.id, p]));
   // IDs vistos alguna vez (incluye duplicados descartados), para no re-avisar.
   const knownIds = new Set([...byId.keys(), ...(prev.seen || [])]);
   const toNotify = [];
