@@ -317,6 +317,13 @@ async function main() {
   // Avisar en orden cronológico, máximo 8 por corrida para no spamear.
   for (const p of toNotify.reverse().slice(-8)) await notify(p);
 
+  // Prueba manual desde Actions → Run workflow → "Mandar push de prueba".
+  if (process.env.TEST_PUSH === "1" || process.env.TEST_PUSH === "true") {
+    const latest = posts.find((p) => p.important && NOTIFY_REGIONS.includes(p.region)) || posts[0];
+    if (latest) await notify({ ...latest, title: `[Prueba] ${latest.title}` });
+    console.log(process.env.NTFY_TOPIC ? "Push de prueba enviado" : "Falta el secreto NTFY_TOPIC: no se envió nada");
+  }
+
   console.log(`Azules: ${posts.length} (nuevos/actualizados a notificar: ${toNotify.length}) · Noticias: ${news.length}`);
   if (errors.length) console.warn("Errores:", errors);
 }
