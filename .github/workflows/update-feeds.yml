@@ -1,8 +1,13 @@
 name: Blue tracker + publicar app
 
+# Diseñado para ser liviano y no parecer automatización abusiva:
+# - corre cada 30 minutos (no cada 15);
+# - NO hace commits: el estado anterior se lee del propio sitio publicado;
+# - solo republica la página cuando hay datos nuevos.
+
 on:
   schedule:
-    - cron: "*/15 * * * *"   # cada 15 min (GitHub puede demorarlo unos minutos)
+    - cron: "11,41 * * * *"   # cada 30 min, en minutos poco congestionados
   workflow_dispatch:
     inputs:
       test_push:
@@ -14,7 +19,7 @@ on:
     paths: ["app/**", "scripts/**", ".github/workflows/update-feeds.yml"]
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -25,8 +30,12 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.save.outputs.changed }}
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      APP_URL: ${{ vars.APP_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,13 +43,15 @@ jobs:
         with:
           node-version: 22
 
+      - name: Traer el estado anterior desde el sitio publicado
+        run: node scripts/restore-state.mjs
+
       - name: Buscar posts azules y noticias
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           NOTIFY_REGIONS: ${{ vars.NOTIFY_REGIONS || 'us' }}
           NOTIFY_ALL: ${{ vars.NOTIFY_ALL || '0' }}
           TEST_PUSH: ${{ inputs.test_push || false }}
-          APP_URL: ${{ vars.APP_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
         run: node scripts/fetch-feeds.mjs
 
       - name: Actualizar personaje (Battle.net API)
@@ -49,37 +60,24 @@ jobs:
           BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
         run: node scripts/fetch-character.mjs
 
-      - name: Guardar datos en el repo
-        id: save
+      - name: ¿Hay algo nuevo?
+        id: diff
         run: |
-          git config user.name "forever-tracker[bot]"
-          git config user.email "forever-tracker@users.noreply.github.com"
-          git add app/data
-          if git diff --cached --quiet -- app/data/blues.json app/data/news.json app/data/character.json; then
-            echo "Sin cambios"
-            git reset -q
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -q -m "data: actualizar blue posts [skip ci]"
-            git push
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
+          changed=false
+          for f in blues.json news.json character.json; do
+            [ -f "app/data/$f" ] || continue   # no existe (ej. personaje sin configurar)
+            if ! cmp -s "app/data/$f" "$RUNNER_TEMP/prev/$f"; then changed=true; fi
+          done
+          if [ "${{ github.event_name }}" != "schedule" ]; then changed=true; fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          echo "Cambios: $changed"
 
-  # Publica la app en GitHub Pages cuando cambian los datos o el código.
-  deploy:
-    needs: update
-    if: needs.update.outputs.changed == 'true' || github.event_name != 'schedule'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - if: steps.diff.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+      - if: steps.diff.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: app
-      - id: deploy
+      - if: steps.diff.outputs.changed == 'true'
+        id: deploy
         uses: actions/deploy-pages@v4

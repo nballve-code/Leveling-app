@@ -13,15 +13,16 @@ App para el teléfono (PWA) pensada para un Priest que levelea en **World of War
 ## Cómo funciona
 
 ```
-GitHub Actions (cada 15 min)
+GitHub Actions (cada 30 min, sin commits)
+  └─ scripts/restore-state.mjs  ← trae los datos anteriores del sitio publicado
   └─ scripts/fetch-feeds.mjs
        ├─ foros Blizzard: /groups/blizzard-tracker/posts.json (US)
        │    filtrado a las categorías "Forever" + texto completo de cada post
        ├─ Wowhead: /news/rss/forever
        ├─ Battle.net API: tu personaje (si está configurado)
-       ├─ guarda app/data/blues.json y app/data/news.json (commit)
+       ├─ actualiza app/data/blues.json y news.json
        └─ si hay algo nuevo/editado e importante → push por ntfy
-  └─ publica la carpeta app/ en GitHub Pages
+  └─ publica app/ en GitHub Pages solo si hubo novedades
 ```
 
 No hay servidor propio ni costos: todo corre en GitHub (Actions + Pages) y ntfy.sh.
