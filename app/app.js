@@ -174,7 +174,7 @@ async function loadData({ silent = false } = {}) {
         notifyLocal(fresh);
       }
     }
-    document.getElementById("updated").textContent = state.generatedAt ? `Datos ${timeAgo(state.generatedAt)}` : "Sin datos todavía";
+    document.getElementById("updated").textContent = state.generatedAt ? `Novedades ${timeAgo(state.generatedAt)}` : "Sin datos todavía";
     updateBadge();
     render();
   } catch (e) {

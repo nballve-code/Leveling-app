@@ -296,7 +296,8 @@ async function main() {
     .slice(0, MAX_BLUES);
 
   // News de Wowhead
-  let news = (await readJSON(newsFile, { items: [] })).items;
+  const prevNews = (await readJSON(newsFile, { items: [] })).items;
+  let news = prevNews;
   try {
     const items = parseRss(await getText("https://www.wowhead.com/news/rss/forever"));
     const seen = new Map(news.map((n) => [n.id, n]));
@@ -312,8 +313,10 @@ async function main() {
     const seen = [...new Set([...knownIds, ...byId.keys()])].slice(-3000);
     await writeFile(bluesFile, JSON.stringify({ generatedAt, errors, posts, seen }, null, 1));
   }
-  await writeFile(newsFile, JSON.stringify({ generatedAt, items: news }, null, 1));
-  await writeFile(path.join(DATA_DIR, "status.json"), JSON.stringify({ generatedAt, errors, blues: posts.length, news: news.length }, null, 1));
+  // Solo se reescribe si cambió: así el workflow no republica la página sin motivo.
+  if (JSON.stringify(news) !== JSON.stringify(prevNews)) {
+    await writeFile(newsFile, JSON.stringify({ generatedAt, items: news }, null, 1));
+  }
 
   // Avisar en orden cronológico, máximo 8 por corrida para no spamear.
   for (const p of toNotify.reverse().slice(-8)) await notify(p);
